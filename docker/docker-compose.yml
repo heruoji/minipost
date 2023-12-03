@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  bext_db:
+    container_name: minipost-db
+    build: ./db
+    # platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: minipost
+      TZ: 'Asia/Tokyo'
+    ports:
+      - "3306:3306"
+    volumes:
+      - minipost_db_data:/var/lib/mysql
+      - ./db/conf.d/mysql.cnf:/etc/mysql/mysql.cnf
+      - ./db/log/mysql:/var/log/mysql
+
+volumes:
+  minipost_db_data:
+    external: true
+  storage_data:
