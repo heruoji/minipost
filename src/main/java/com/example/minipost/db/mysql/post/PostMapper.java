@@ -1,7 +1,7 @@
 package com.example.minipost.db.mysql.post;
 
-import com.example.minipost.core.post.Post;
-import com.example.minipost.core.user.User;
+import com.example.minipost.core.entity.Post;
+import com.example.minipost.core.entity.User;
 import com.example.minipost.db.mysql.user.UserMapper;
 import com.example.minipost.db.mysql.user.UserRecord;
 

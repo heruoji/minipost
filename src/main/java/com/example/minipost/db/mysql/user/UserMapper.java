@@ -1,6 +1,6 @@
 package com.example.minipost.db.mysql.user;
 
-import com.example.minipost.core.user.User;
+import com.example.minipost.core.entity.User;
 
 public class UserMapper {
     public static UserRecord toRecord(User user) {

@@ -1,7 +1,7 @@
 package com.example.minipost.db.mysql.user;
 
-import com.example.minipost.core.user.User;
-import com.example.minipost.core.user.UserRepository;
+import com.example.minipost.core.entity.User;
+import com.example.minipost.core.repository.UserRepository;
 
 public class UserRepositoryImpl implements UserRepository {
     private final JpaUserRepository jpaUserRepository;

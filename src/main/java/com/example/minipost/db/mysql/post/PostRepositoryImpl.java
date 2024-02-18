@@ -1,7 +1,7 @@
 package com.example.minipost.db.mysql.post;
 
-import com.example.minipost.core.post.Post;
-import com.example.minipost.core.post.PostRepository;
+import com.example.minipost.core.entity.Post;
+import com.example.minipost.core.repository.PostRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

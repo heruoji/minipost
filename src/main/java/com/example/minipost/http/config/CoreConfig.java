@@ -1,9 +1,8 @@
 package com.example.minipost.http.config;
 
-import com.example.minipost.core.post.PostRepository;
-import com.example.minipost.core.user.UserRepository;
-import com.example.minipost.core.post.PostUseCase;
-import com.example.minipost.core.user.UserUseCase;
+import com.example.minipost.core.repository.PostRepository;
+import com.example.minipost.core.repository.UserRepository;
+import com.example.minipost.core.usecase.*;
 import com.example.minipost.core.utils.JWTService;
 import com.example.minipost.db.mysql.post.JpaPostRepository;
 import com.example.minipost.db.mysql.post.PostRepositoryImpl;
@@ -28,8 +27,13 @@ public class CoreConfig {
     }
 
     @Bean
-    public UserUseCase userUseCase(UserRepository userRepository, JWTService jwtService) {
-        return new UserUseCase(userRepository, jwtService);
+    public SignUpUseCase signUpUseCase(UserRepository userRepository, JWTService jwtService) {
+        return new SignUpUseCase(userRepository, jwtService);
+    }
+
+    @Bean
+    public SignInUseCase signInUseCase(UserRepository userRepository, JWTService jwtService) {
+        return new SignInUseCase(userRepository, jwtService);
     }
 
     @Bean
@@ -38,7 +42,17 @@ public class CoreConfig {
     }
 
     @Bean
-    public PostUseCase postUseCase(PostRepository postrepository, UserRepository userRepository) {
-        return new PostUseCase(postrepository, userRepository);
+    public LikePostUseCase likePostUseCase(PostRepository postrepository) {
+        return new LikePostUseCase(postrepository);
+    }
+
+    @Bean
+    public PublishPostUseCase publishPostUseCase(PostRepository postrepository, UserRepository userRepository) {
+        return new PublishPostUseCase(postrepository, userRepository);
+    }
+
+    @Bean
+    public GetPaginatedPostUseCase getPaginatedPostUseCase(PostRepository postrepository) {
+        return new GetPaginatedPostUseCase(postrepository);
     }
 }
